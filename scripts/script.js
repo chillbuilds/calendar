@@ -1,34 +1,34 @@
 $("#current").text(moment().format("MMMM Do, h:mm a"));
-var hour = moment().format("h");
+var hour = "";
 var amPm = moment().format("a");
 var timeArray = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 onLoad();
+var t = setInterval(function() {
+}, 1000);
 
 //functions
 function onLoad() {
-  // background: rgba(53, 255, 53, .7);");
-  // background: rgba(255, 53, 53, .7);");
-  if(amPm === "pm"){
+  hour = moment().format("h");
+  if (amPm === "pm") {
     hour = parseInt(hour) + 12;
   }
-  console.log(hour);
+  if (hour === 24) {
+    hour = 12;
+  }
   for (var i = 0; i < timeArray.length; i++) {
-    if (timeArray[i] > hour) {
+    if (parseInt(timeArray[i]) > hour) {
       $("#text" + timeArray[i]).attr(
         "style",
-        "background: rgba(53, 255, 53, .7);"
+        "background: rgba(53, 255, 53, .3);"
       );
     } else {
       $("#text" + timeArray[i]).attr(
         "style",
-        "background: rgba(255, 53, 53, .7);"
+        "background: rgba(255, 53, 53, .3);"
       );
     }
-  }
-
-  for (var i = 0; i < timeArray.length; i++) {
-    if (hour === timeArray[i]) {
-      $("#text" + timeArray[i]).attr("style", "background: #999999;");
+    if (hour == timeArray[i]) {
+      $("#text" + timeArray[i]).attr("style", "background: rgba(0, 0, 0, .1)");
     }
   }
   for (var i = 0; i < timeArray.length; i++) {
