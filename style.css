@@ -1,0 +1,34 @@
+#header {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+textarea {
+    width: 100%;
+}
+
+.time {
+    margin-top: 10px;
+    text-align: right;
+    font-weight: bold;
+}
+
+img {
+    width: 52px;
+    background: royalblue;
+}
+
+textarea {
+    background: #cfcfcf;
+    border: none;
+    text-decoration: none;
+}
+
+.col-1 {
+    padding: 0px;
+}
