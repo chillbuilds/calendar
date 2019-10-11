@@ -21,12 +21,14 @@ textarea {
 img {
     width: 52px;
     background: royalblue;
+    border-radius: 4px;
 }
 
 textarea {
     background: #cfcfcf;
     border: none;
     text-decoration: none;
+    border-radius: 4px;
 }
 
 .col-1 {
