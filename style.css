@@ -22,6 +22,7 @@ img {
     width: 52px;
     background: royalblue;
     border-radius: 4px;
+    padding: 15px;
 }
 
 textarea {
