@@ -1,11 +1,36 @@
-$("#current").text(moment().format('MMMM Do, h:mm a'));
+$("#current").text(moment().format("MMMM Do, h:mm a"));
 var hour = moment().format("h");
-var timeArray = [9, 10, 11, 12, 1, 2, 3, 4, 5];
+var amPm = moment().format("a");
+var timeArray = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 onLoad();
-alert(hour);
 
 //functions
 function onLoad() {
+  // background: rgba(53, 255, 53, .7);");
+  // background: rgba(255, 53, 53, .7);");
+  if(amPm === "pm"){
+    hour = parseInt(hour) + 12;
+  }
+  console.log(hour);
+  for (var i = 0; i < timeArray.length; i++) {
+    if (timeArray[i] > hour) {
+      $("#text" + timeArray[i]).attr(
+        "style",
+        "background: rgba(53, 255, 53, .7);"
+      );
+    } else {
+      $("#text" + timeArray[i]).attr(
+        "style",
+        "background: rgba(255, 53, 53, .7);"
+      );
+    }
+  }
+
+  for (var i = 0; i < timeArray.length; i++) {
+    if (hour === timeArray[i]) {
+      $("#text" + timeArray[i]).attr("style", "background: #999999;");
+    }
+  }
   for (var i = 0; i < timeArray.length; i++) {
     var z = JSON.parse(localStorage.getItem(timeArray[i]));
     $("#text" + timeArray[i]).text(z);
@@ -28,7 +53,6 @@ $(".lock").on("click", function() {
     document.getElementById("text" + x).readOnly = false;
   }
 });
-
 $("#lock-all").on("click", function() {
   $(".lock").attr("src", "images/lock-closed.png");
   $(".lock").attr("lock", "closed");
@@ -38,7 +62,6 @@ $("#lock-all").on("click", function() {
     localStorage.setItem(timeArray[i], JSON.stringify(y));
   }
 });
-
 $("#unlock-all").on("click", function() {
   $(".lock").attr("src", "images/lock-open.png");
   $(".lock").attr("lock", "open");
@@ -46,10 +69,9 @@ $("#unlock-all").on("click", function() {
     document.getElementById("text" + timeArray[i]).readOnly = false;
   }
 });
-
 $("#reset").on("click", function() {
-    for (var i = 0; i < timeArray.length; i++) {
-        localStorage.clear();
+  for (var i = 0; i < timeArray.length; i++) {
+    localStorage.clear();
     document.getElementById("text" + timeArray[i]).value = "";
   }
 });
