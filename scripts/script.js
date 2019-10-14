@@ -3,7 +3,7 @@ var hour = "";
 var amPm = moment().format("a");
 var timeArray = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 onLoad();
-var t = setInterval(function() {
+var t = setInterval(function() { 
 }, 1000);
 
 //functions
